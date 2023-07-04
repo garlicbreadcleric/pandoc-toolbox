@@ -1,0 +1,33 @@
+{
+  "name": "pandoc-toolbox",
+  "version": "0.1.0",
+  "description": "A collection of Pandoc filters and tools",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "rm -rf ./dist && tsc",
+    "build-dev": "rm -rf ./dist && tsc --sourceMap",
+    "format": "fd '\\.(ts|js)$' src bin tests benchmarks -x npx prettier -w",
+    "generate-templates": "npm run build && node dist/generate-templates.js"
+  },
+  "bin": {
+    "pandoc-iconify": "bin/pandoc-iconify.js",
+    "pandoc-lightbox": "bin/pandoc-lightbox.js"
+  },
+  "author": "Daniil Kolesnichenko <garlicbreadcleric@yahoo.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "katex": "^0.16.4",
+    "mermaid": "^10.2.4",
+    "pandoc-filter": "^2.1.0"
+  }
+}
