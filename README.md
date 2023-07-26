@@ -14,7 +14,6 @@ Features:
 Coming soon:
 
 - `pandoc-lightbox` — a Pandoc filter that allows to open images in a [modal](https://www.w3schools.com/howto/howto_js_lightbox.asp).
-- Better styles for templates.
 - Templates without bundling (not for preview).
 
 ## Usage
