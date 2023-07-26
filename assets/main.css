@@ -242,7 +242,7 @@ pre > code {
 
 pre {
   padding: 0.5rem;
-  overflow: auto;
+  overflow: auto !important;
   font-size: 0.85rem !important;
   line-height: 1.45;
   border: var(--border-fg);
