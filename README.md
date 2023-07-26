@@ -2,7 +2,9 @@
 
 A collection of tools for using Pandoc for Markdown preview (see [Document Preview](https://github.com/garlicbreadcleric/vscode-document-preview) VS Code extension) and more.
 
-![Output example](./screenshot.png)
+Output example:
+
+<img src="./screenshot.png" width="600px"></img>
 
 Features:
 
