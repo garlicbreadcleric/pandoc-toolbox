@@ -1,7 +1,310 @@
+:root {
+  --primary-fg: #333;
+  --accent-fg: #000;
+  --link-fg: #08c;
+  --link-hover-fg: #00a3f5;
+  --fading-fg: #5c5c5c;
+  --border-fg: #c2c2c2;
+
+  --primary-bg: #ebebeb;
+  --accent-bg: #d7d7d7;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--primary-fg);
+  background: none;
+  overflow: initial;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  padding-top: 1em;
+  padding-bottom: 5em;
+}
+
+body > :first-child {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  color: var(--accent-fg);
+  clear: both;
+}
+
+h1 {
+  font-size: 2.25em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border-fg);
+}
+
+h2 {
+  font-size: 1.75em;
+  padding-bottom: 0.3em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.25em;
+}
+
+h5 {
+  font-size: 1.1em;
+}
+
+h6 {
+  font-size: 1em;
+  color: var(--fading-fg);
+}
+
+strong {
+  color: var(--accent-fg);
+}
+
+del {
+  color: var(--fading-fg);
+}
+
+a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
 a {
+  color: var(--link-fg);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover-fg);
   text-decoration: none;
 }
 
 img {
   max-width: 100%;
+}
+
+figure {
+  border: 1px solid var(--border-fg);
+  padding: 0.5em;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: fit-content;
+  max-width: 200px;
+  box-sizing: content-box;
+}
+
+figcaption {
+  font-size: 0.8em;
+  color: var(--fading-fg);
+}
+
+.gallery img {
+  cursor: pointer;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: 50% 0;
+}
+
+body > p {
+  margin-top: 0;
+  margin-bottom: 16px;
+  word-wrap: break-word;
+}
+
+body > ul,
+body > ol {
+  margin-bottom: 16px;
+}
+
+ul,
+ol {
+  padding-left: 2em;
+  clear: left;
+}
+
+ul.no-list,
+ol.no-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+li,
+li p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+blockquote {
+  font-style: italic;
+  background: none;
+  color: var(--fading-fg);
+  border-left: 3px solid var(--fading-fg);
+  margin-left: 0;
+  padding-left: 0.8rem;
+}
+
+li > blockquote {
+  margin: 0 !important;
+}
+
+hr {
+  height: 4px;
+  margin: 32px 0;
+  background-color: var(--border-fg);
+  border: 0 none;
+}
+
+table {
+  margin: 10px 0 15px 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+table th {
+  font-weight: bold;
+  color: var(--accent-fg);
+}
+
+table td,
+table th {
+  border: 1px solid var(--border-fg);
+  padding: 6px 13px;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+code {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 0.85em !important;
+  color: var(--accent-fg);
+  background-color: var(--accent-bg);
+  border-radius: 3px;
+  padding: 0.2em 0;
+}
+
+code::before,
+code::after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+pre > code {
+  padding: 0;
+  margin: 0;
+  font-size: 0.85em !important;
+  word-break: normal;
+  white-space: pre;
+  border: 0;
+}
+
+pre {
+  padding: 0.5rem;
+  overflow: auto;
+  font-size: 0.85rem !important;
+  line-height: 1.45;
+  border: var(--border-fg);
+  border-radius: 3px;
+  background: var(--accent-bg);
+}
+
+pre code,
+pre tt {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+pre code:before,
+pre tt:before,
+pre code:after,
+pre tt:after {
+  content: normal;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+pre {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+sup,
+sub {
+  vertical-align: baseline;
+  position: relative;
+}
+
+sup {
+  top: -0.5em;
+}
+sub {
+  top: 0.5em;
+}
+
+#footnotes {
+  font-size: 0.8rem;
+}
+
+.footnote-ref > sup::before {
+  content: "[";
+}
+
+.footnote-ref > sup::after {
+  content: "]";
+}
+
+.csl-entry {
+  margin-top: 0.5em;
 }

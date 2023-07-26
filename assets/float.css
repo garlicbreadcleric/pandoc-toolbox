@@ -1,0 +1,19 @@
+.float-left {
+  float: left;
+  clear: left;
+  margin-right: 0.5em;
+}
+
+.float-right {
+  float: right;
+  clear: right;
+  margin-left: 0.5em;
+}
+
+.float-right > figure {
+  margin-top: 0.5em;
+}
+
+.float-left > figure {
+  margin-top: 0.5em;
+}

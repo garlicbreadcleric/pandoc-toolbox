@@ -20,6 +20,10 @@ const action: SingleFilterActionAsync = ({ t: type, c: value }, format, meta) =>
     } else if (/^[.0-9a-zA-Z\-_\/]+\.md$/.exec(target)) {
       return pandoc.Link([linkId, [...linkClasses, "pandoc-iconify-link-note"], linkAttrs], value[1], value[2]);
     }
+  } else if (type === "Str" && value === "☐") {
+    return pandoc.RawInline("html", `<i class="fa-regular fa-square pandoc-iconify-checkbox"></i>`);
+  } else if (type === "Str" && value === "☒") {
+    return pandoc.RawInline("html", `<i class="fa-regular fa-square-check pandoc-iconify-checkbox"></i>`);
   }
 };
 

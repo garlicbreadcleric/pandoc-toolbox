@@ -15,14 +15,18 @@ function readSync(path: string): string {
 }
 
 const mainCss = readSync("./assets/main.css");
+const floatCss = readSync("./assets/float.css");
 const iconifyCss = readSync("./assets/iconify.css");
+const faCss = readSync("./assets/fontawesome.css");
+const katexCss = readSync("./assets/katex.css");
+const mermaidCss = readSync("./assets/mermaid.css");
 
-const faCss = readSync("./fontawesome/css/fontawesome.css");
-const faRegularBase64 = readBase64Sync("./fontawesome/webfonts/fa-regular-400.ttf");
-const faSolidBase64 = readBase64Sync("./fontawesome/webfonts/fa-solid-900.ttf");
-const faBrandsBase64 = readBase64Sync("./fontawesome/webfonts/fa-brands-400.ttf");
+const faLibCss = readSync("./fontawesome/css/fontawesome.min.css");
+const faLibRegularBase64 = readBase64Sync("./fontawesome/webfonts/fa-regular-400.ttf");
+const faLibSolidBase64 = readBase64Sync("./fontawesome/webfonts/fa-solid-900.ttf");
+const faLibBrandsBase64 = readBase64Sync("./fontawesome/webfonts/fa-brands-400.ttf");
 
-const katexCss = readSync("node_modules/katex/dist/katex.min.css").replace(
+const katexLibCss = readSync("node_modules/katex/dist/katex.min.css").replace(
   /url\([^)]*\) format\("woff2"\),url\([^)]*\) format\("woff"\),url\(([^)]*)\) format\("truetype"\)/g,
   (match, captureGroup) => {
     const katexFontBase64 = readBase64Sync(`./node_modules/katex/dist/${captureGroup}`);
@@ -30,7 +34,7 @@ const katexCss = readSync("node_modules/katex/dist/katex.min.css").replace(
   }
 );
 
-const mermaidJs = readSync("node_modules/mermaid/dist/mermaid.min.js");
+const mermaidLibJs = readSync("node_modules/mermaid/dist/mermaid.min.js");
 
 const previewTemplate = `<!DOCTYPE html>
 <html>
@@ -38,31 +42,36 @@ const previewTemplate = `<!DOCTYPE html>
     <meta charset="utf-8" />
     <style type="text/css">
       ${mainCss}
+      ${floatCss}
       ${iconifyCss}
+      ${faCss}
+      ${katexCss}
+      ${mermaidCss}
 
-      :root {
-        --fa-style-family-classic: 'Font Awesome 6 Free';
-        --fa-font-regular: normal 400 1em/1 'Font Awesome 6 Free';
-        --fa-style-family-brands: 'Font Awesome 6 Brands';
-        --fa-font-brands: normal 400 1em/1 'Font Awesome 6 Brands';
-        --fa-style-family-classic: 'Font Awesome 6 Free';
-        --fa-font-solid: normal 900 1em/1 'Font Awesome 6 Free';
+      @font-face {
+        font-family: "Font Awesome 6 Free";
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src: url(data:font/truetype;base64,${faLibRegularBase64}) format("truetype")
       }
       @font-face {
         font-family: "Font Awesome 6 Free";
-        src: url(data:font/truetype;base64,${faRegularBase64}) format("truetype")
-      }
-      @font-face {
-        font-family: "Font Awesome 6 Free";
-        src: url(data:font/truetype;base64,${faSolidBase64}) format("truetype")
+        font-style: normal;
+        font-weight: 900;
+        font-display: block;
+        src: url(data:font/truetype;base64,${faLibSolidBase64}) format("truetype")
       }
       @font-face {
         font-family: "Font Awesome 6 Brands";
-        src: url(data:font/truetype;base64,${faBrandsBase64}) format("truetype")
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src: url(data:font/truetype;base64,${faLibBrandsBase64}) format("truetype")
       }
-      ${faCss}
 
-      ${katexCss}
+      ${faLibCss}
+      ${katexLibCss}
 
       $if(highlighting-css)$
       $highlighting-css$
@@ -73,7 +82,7 @@ const previewTemplate = `<!DOCTYPE html>
       $endif$
     </style>
     <script type="application/javascript" defer="">
-      ${mermaidJs}
+      ${mermaidLibJs}
       mermaid.mermaidAPI.initialize({ startOnLoad: false, theme: "neutral" });
 
       window.addEventListener("load", () => {
